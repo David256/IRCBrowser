@@ -3,10 +3,11 @@
 class setter:
 
 	def __init__(self):
+		#aquí debemos cargar config.json
 		self.nombre = "Browser"
 		self.realname = "IRCBrowser"
 		self.servidor = "irc.hira.io"
-		#aquí debemos cargar config.json
+		print("[Setter] creación")
 
 	def getNombre(self):
 		return self.nombre

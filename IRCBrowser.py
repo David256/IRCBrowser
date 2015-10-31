@@ -26,6 +26,7 @@ browser = Browser.browser()
 
 
 def accion():
+	print("[BOT] Loop")
 	pass
 
 try:
