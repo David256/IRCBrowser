@@ -8,9 +8,10 @@ class irc:
 	conectado = False
 
 
-	def __init__(self, nom, serv):
+	def __init__(self, nom, realname, serv):
 		self.nombre = nom
 		self.servidor = serv
+		self.realname = realname
 		#iniciamos las variables necesarias
 
 	def conectar(self):
@@ -18,7 +19,7 @@ class irc:
 		self.visa.connect((self.servidor, 6667))
 		print("Enviando credenciales")
 		self.enviar("NICK " + self.nombre)
-		self.enviar("USER " + self.nombre + " Usuario Usuario IRCBrowser")
+		self.enviar("USER " + self.nombre + " Usuario Usuario " + self.realname)
 		self.conectado = True
 		#conectamos y fijamos estados
 
