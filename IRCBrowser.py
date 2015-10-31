@@ -27,10 +27,12 @@ browser = Browser.browser()
 
 def accion():
 	print("[BOT] Loop")
+	#aqui los metodo de recivir datos
 	pass
 
 try:
 	#metodo
+	irc.conectar()
 	accion()
 except Exception as e:
 	print("Error Fatal: El bot ha lanzado un error no manejable anteriormente >:( ")
