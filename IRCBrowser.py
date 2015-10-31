@@ -48,7 +48,7 @@ def accion():
 		else:
 			resultados = browser.actuar(usuario, comando, mensaje)
 			if(resultados != ''):
-				irc.mensaje(resultados[0], resultados[1])
+				irc.mensaje(usuario, resultados)
 
 try:
 	#metodo
