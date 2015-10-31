@@ -36,3 +36,4 @@ try:
 	accion()
 except Exception as e:
 	print("Error Fatal: El bot ha lanzado un error no manejable anteriormente >:( ")
+	print("Mas informacion: " + str(e))
