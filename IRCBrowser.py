@@ -29,7 +29,13 @@ browser = Browser.browser()
 def accion():
 	#print("[BOT] Loop")
 	#aqui los metodo de recivir datos
-	print(irc.recibir())
+	m = irc.recibir()
+	mmm = irc.info(m)
+	if(mmm != None and len(mmm)==2):
+		usuario = mmm[0]
+		mensaje = mmm[1]
+		print('{0} said: {1}'.format(usuario, mensaje))
+
 
 try:
 	#metodo
