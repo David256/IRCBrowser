@@ -50,16 +50,23 @@ class irc:
 				print("Se hace PING/PONG")
 		#manejamos evento ping/pong
 
-	def informacion(texto):
-		# ^(:)(.+)(!)(~?)(.+)(\/)(.+)(\s)(PRIVMSG)(\s)(\w+)(\s)(:)(.*)$
-		expresion = '^(:)(.+)(!)(~?)(.+)(\/)(.+)(\s)(PRIVMSG)(\s)(\w+)(\s)(:)(.*)$'
+	def info(self, texto):
+		# ^(:)(\w+)(!)(.+)(\/)(\w+)(\s)(PRIVMSG)(\s)(\w+)(\s)(:)(.*)$
+		expresion = '^(:)(\w+)(!)(.+)(\/)(\w+)(\s)(PRIVMSG)(\s)(\w+)(\s)(:)(.*)$'
 		partes = re.match(expresion, texto)
-		usuario = partes[1]
-		comando = partes[8]
-		destino = partes[10]
-		mensaje = partes[13]
-		if(comando == 'PRIVMSG' and destino == self.nombre):
-			informe = {usuario, mensaje}
+		try:
+			partes.group()
+		except Exception as e:
+			return None
+
+		arreglo = partes.groups()
+		usuario = arreglo[1]
+		comando = arreglo[7]
+		destino = arreglo[9]
+		mensaje = arreglo[12]
+		if(comando == 'PRIVMSG'):
+			informe = [usuario, mensaje]
+			print("[+] Alguien me habla ({})".format(usuario))
 			return informe
 		else:
 			return None
