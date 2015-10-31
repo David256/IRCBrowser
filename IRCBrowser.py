@@ -12,6 +12,7 @@
 # https://github.com/David256
 
 
+import re
 import sys
 
 import omg.IRC as IRC
@@ -35,7 +36,19 @@ def accion():
 		usuario = mmm[0]
 		mensaje = mmm[1]
 		print('{0} said: {1}'.format(usuario, mensaje))
-
+		#ahora tenemos que ver que comando ha efectuado
+		comando = ''
+		try:
+			comando = re.match("^(\w+)", mensaje).groups()[0]
+		except Exception as e:
+			pass
+		if(comando == 'hola' or comando == 'hello' or comando == 'hi' or comando == 'open me'):
+			irc.mensaje(usuario, 'Bienvenido {}, te doy la bienvenida a IRCBrowser v0.1'.format(usuario))
+			irc.mensaje(usuario, '**    Te quiero decir que puedes tener mas informacion en https://github.com/David256/IRCBrowser')
+		else:
+			resultados = Browser.actuar(usuario, comando, mensaje)
+			if(resultados != ''):
+				irc.mensaje(resultados[0], resultados[1])
 
 try:
 	#metodo
