@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 import socket
+import re
 
 class irc:
 
@@ -48,3 +49,17 @@ class irc:
 				self.enviar("PONG " + parte[1][1:])
 				print("Se hace PING/PONG")
 		#manejamos evento ping/pong
+
+	def informacion(texto):
+		# ^(:)(.+)(!)(~?)(.+)(\/)(.+)(\s)(PRIVMSG)(\s)(\w+)(\s)(:)(.*)$
+		expresion = '^(:)(.+)(!)(~?)(.+)(\/)(.+)(\s)(PRIVMSG)(\s)(\w+)(\s)(:)(.*)$'
+		partes = re.match(expresion, texto)
+		usuario = partes[1]
+		comando = partes[8]
+		destino = partes[10]
+		mensaje = partes[13]
+		if(comando == 'PRIVMSG' and destino == self.nombre):
+			informe = {usuario, mensaje}
+			return informe
+		else:
+			return None

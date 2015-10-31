@@ -27,8 +27,9 @@ browser = Browser.browser()
 
 
 def accion():
-	print("[BOT] Loop")
+	#print("[BOT] Loop")
 	#aqui los metodo de recivir datos
+	print(irc.recibir())
 
 try:
 	#metodo
