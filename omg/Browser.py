@@ -24,4 +24,11 @@ class browser:
 	def actuar(self, usuario, comando, mensaje):
 		#tenemos que devolver un mensaje, no más
 		if(comando == 'go' or comando == 'ir'):
-			return 'yendo'
+			so = socket.socket()
+			so.connect((mensaje, 80))
+			so.send('''GET / HTTP/1.0
+				Host: {0}
+
+				'''.format(mensaje))
+
+			return so.recv(512)
