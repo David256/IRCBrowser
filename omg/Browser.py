@@ -20,3 +20,8 @@ class browser:
 		#vamos a hacer la peticion y a devolver el valor obtenido
 		print("[Browser] HacerPeticion")
 		pass
+
+	def actuar(self, usuario, comando, mensaje):
+		#tenemos que devolver un mensaje, no más
+		if(comando == 'go' or comando == 'ir'):
+			return 'yendo'
