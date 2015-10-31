@@ -7,7 +7,7 @@ class setter:
 		self.nombre = "Browser"
 		self.realname = "IRCBrowser"
 		self.servidor = "irc.hira.io"
-		print("[Setter] creación")
+		print("[Setter] creacion")
 
 	def getNombre(self):
 		return self.nombre

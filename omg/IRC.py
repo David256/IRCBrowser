@@ -15,7 +15,7 @@ class irc:
 		self.servidor = serv
 		self.realname = realname
 		#iniciamos las variables necesarias
-		print("[IRC] Creación")
+		print("[IRC] Creacion")
 
 	def conectar(self):
 		print("Conectandose..")

@@ -9,7 +9,7 @@ class browser:
 		self.url = ""
 		self.contenido = ""
 		self.estado = 000
-		print("[Browser] creación")
+		print("[Browser] creacion")
 
 	def corregirUrl(self, url):
 		#vamos a corregir las url y obtener los datos necesarios
