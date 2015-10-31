@@ -46,7 +46,7 @@ def accion():
 			irc.mensaje(usuario, 'Bienvenido {}, te doy la bienvenida a IRCBrowser v0.1'.format(usuario))
 			irc.mensaje(usuario, '**    Te quiero decir que puedes tener mas informacion en https://github.com/David256/IRCBrowser')
 		else:
-			resultados = Browser.actuar(usuario, comando, mensaje)
+			resultados = browser.actuar(usuario, comando, mensaje)
 			if(resultados != ''):
 				irc.mensaje(resultados[0], resultados[1])
 
