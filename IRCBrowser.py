@@ -21,7 +21,7 @@ import omg.Setter as Setter
 #creacion de objetos necesarios
 setter = Setter.setter()
 
-irc = IRC.irc( setter.getNombre , setter.getRealname , setter.getServidor )
+irc = IRC.irc( setter.getNombre() , setter.getRealname() , setter.getServidor() )
 #objeto del navegador
 browser = Browser.browser()
 
@@ -37,7 +37,7 @@ try:
 	while(True):
 		accion()
 	#fin
-	
+
 except Exception as e:
 	print("Error Fatal: El bot ha lanzado un error no manejable anteriormente >:( ")
 	print("Mas informacion: " + str(e))
