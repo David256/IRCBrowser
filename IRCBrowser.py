@@ -12,6 +12,7 @@
 # https://github.com/David256
 
 
+import sys
 
 import omg.IRC as IRC
 import omg.Browser as Browser
@@ -28,12 +29,15 @@ browser = Browser.browser()
 def accion():
 	print("[BOT] Loop")
 	#aqui los metodo de recivir datos
-	pass
 
 try:
 	#metodo
 	irc.conectar()
-	accion()
+
+	while(True):
+		accion()
+	#fin
+	
 except Exception as e:
 	print("Error Fatal: El bot ha lanzado un error no manejable anteriormente >:( ")
 	print("Mas informacion: " + str(e))
